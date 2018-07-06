@@ -1,9 +1,9 @@
 var http = require('http');
 var https = require('https');
 var express = require('express'),
-    restful = require('node-restful'),
+    //restful = require('node-restful'),
     bodyParser = require('body-parser'),
-    morgan = require('morgan'),
+    //morgan = require('morgan'),
     multer = require('multer'),
     path = require('path'),
     methodOverride = require('method-override'),
@@ -60,7 +60,7 @@ var app = express();
 
 app.set('superSecret', config.secret);
 app.timeout = 640000;
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ 'extended': 'true' }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ 'type': 'application/vnd.api+json' }));
@@ -1880,7 +1880,7 @@ router.post('/signup', function(req, res, next) {
     })
 });
 
-
+/*
 var dbcajourSchema = mongoose.Schema({
     nommag: { type: String, require: true },
     nummag: { type: String, require: true },
@@ -1984,101 +1984,18 @@ var raspbSchema = mongoose.Schema({
 var raspberryList = restful.model('raspblist', raspbSchema);
 raspberryList.methods(['get', 'put', 'post', 'delete']);
 raspberryList.register(app, '/vvapi/v2/raspblist');
-
-
-//var UsersDb = mongoose.model('users',UsersSchema);
-
-// middleware to use for all requests
-// interception des requetes en vu de securiser
-/*
-router.use(function(req, res, next) {
-    //res.status(err.status || 500);
-    // do logging
-    console.log('Je dois securiser ma requete');
-    //next(); // make sure we go to the next routes and don't stop here
-    // check header or url parameters or post parameters for token
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-
-
-    console.log("Chemin",req.path);
-
-
-    // decode token
-    if (token) {
-
-        // verifies secret and checks exp
-        jwt.verify(token, app.get('superSecret'), function(err, decoded) {
-        if (err) {
-            return res.json({ success: false, message: 'Failed to authenticate token.' });
-        } else {
-            // if everything is good, save to request for use in other routes
-            req.decoded = decoded;
-            console.log("Decoded",decoded);
-            next();
-        }
-        });
-
-    } else {
-        // verification user and password json to generate token
-        console.log("Verification utilisateur mot de passe");
-        var username = req.body.username;
-        var password = req.body.password;
-        console.log("Utilisateur",username);
-        console.log("Mot de passe",password);
-
-        Users.findOne({ "username": username , "password": password}, function(err, user){
-            if (user) {
-
-                    var token = jwt.sign({ "username": username }, app.get('superSecret'),{
-                        expiresIn: '1d',
-                        noTimestamp: true
-                    });
-                    return res.status(200).send({
-                        success: true,
-                        token: token
-                    })
-
-            } else {
-                // if there is no token
-                // return an error
-                return res.status(200).send({
-                    success: false,
-                    message: 'No token provided.'
-                })
-            }
-        });
-        return;
-
-
-
-    }
-});
 */
 
 
 
 
-//require('letsencrypt-express').create({server: 'https://acme-v01.api.letsencrypt.org/directory', email: 'herve@rvdechavigny.fr', agreeTos: true, approveDomains: [ 'webservices.rvdechavigny.fr' ], app: app}).listen(80, 443);
 
 
 http.createServer(app).listen(8077);
 console.log("Serveur v2 API Restful Herve de CHAVIGNY en ecoute sur le port 8077!");
 
 
-// Enable https
-//
-//var privateKey = fs.readFileSync('/root/webservices-rvdechavigny-fr-private.pem');
-//var certificate = fs.readFileSync('/root/webservices-rvdechavigny-fr.pem');
 
-//var credentials = {
-//    key: privateKey,
-//    cert: certificate,
-//    rejectUnauthorized: false
-//};
-//https.createServer(credentials, app).listen(8443);
-/// options for SSL certificate
-//var port = 443;
 var options = {
     cert: fs.readFileSync('/root/vvrestful_v2/webservices_rvdechavigny_fr.crt'),
     key: fs.readFileSync('/root/vvrestful_v2/newvv.key'),
