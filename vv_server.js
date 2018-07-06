@@ -8,11 +8,11 @@ var express = require('express'),
     path = require('path'),
     methodOverride = require('method-override'),
     config = require('./config'),
-    jwt = require('jsonwebtoken'),
-    request = require('request'),
-    formidable = require('formidable'),
-    mongoose = restful.mongoose;
-var auth = require('basic-auth');
+    // jwt = require('jsonwebtoken'),
+    request = require('request')
+    //formidable = require('formidable'),
+    // mongoose = restful.mongoose;
+    //var auth = require('basic-auth');
 var fs = require('fs');
 
 
