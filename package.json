@@ -1,0 +1,33 @@
+{
+    "name": "vvapi",
+    "main": "vv_server.js",
+    "dependencies": {
+        "basic-auth": "^1.0.4",
+        "body-parser": "^1.15.1",
+        "express": "^4.1.1",
+        "formidable": "^1.1.1",
+        "fs": "0.0.1-security",
+        "google-auth-library": "^1.6.1",
+        "googleapis": "^32.0.0",
+        "https": "^1.0.0",
+        "ical-generator": "^0.2.10",
+        "icalevent": "^0.3.2",
+        "ics": "^2.0.1",
+        "jsonwebtoken": "^8.3.0",
+        "jwt-simple": "^0.5.0",
+        "letsencrypt-express": "^2.0.6",
+        "mailer": "^0.6.7",
+        "method-override": "^2.3.6",
+        "mongoose": "^4.1.1",
+        "morgan": "^1.7.0",
+        "node-restful": "^0.2.5",
+        "node-uuid": "^1.4.7",
+        "nodemailer": "^4.4.1",
+        "path": "^0.12.7",
+        "request": "^2.72.0",
+        "rest-auth": "0.0.0"
+    },
+    "devDependencies": {
+        "multer": "^1.2.1"
+    }
+}
